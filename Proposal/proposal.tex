@@ -1,0 +1,204 @@
+%!TEX TS-program = xelatex
+
+\documentclass{article}
+
+\usepackage{listings}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage{fancyhdr} % Fancy headers and footers
+\usepackage{amsthm, amsmath, amsfonts, amssymb, mathrsfs, mathtools} % Math packages
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{marginnote}
+
+%% For inkspace figures:
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\newcommand{\incfig}[1]{%
+    \def\svgwidth{\columnwidth}
+    \import{./figures/}{#1.pdf_tex}
+}
+% \pdfsuppresswarningpagegroup=1
+
+%% Set document margin:
+\geometry{margin=1in} %% Add paperheight=16383pt to make page continuous
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{remark}{Remark}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\newtheoremstyle{note}{3pt}{3pt}{\normalfont}{}{\bfseries}{:}{ }{}
+\theoremstyle{note}
+\newtheorem*{note}{Note}
+
+%% Margin Notes
+\let\oldmarginpar\marginpar
+\renewcommand{\marginpar}[2][text width=3cm, rectangle, draw,rounded corners, thick]{%
+        \oldmarginpar{%
+        \tikz\node at (0,0) [#1]{#2};}
+        }
+
+
+%% Header and Footer
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\classname} % Left Header text
+\rhead{} % Right header text
+\rfoot{Page \thepage}
+
+%\usepackage{fontspec}
+%\usepackage{setspace}
+%
+%\setmainfont{IBMPlexSans}[
+%    Path = fonts/,
+%    Extension =.ttf,
+%    UprightFont = *-Light,
+%    BoldFont = *-Bold,
+%    ItalicFont = *-Italic,
+%    BoldItalicFont = *-BoldItalic
+%]
+
+
+%%% ADD OPTIONAL HEADER AND FOOTER RULES
+
+%%% CHANGE SNIPPETS _ AND ^ TO DETECT IF
+%%% {} HAVE ALREADY BEEN WRITTEN
+
+
+%%% INPUTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\classname}{Open Project Proposal}
+
+
+%%% SNIPPET COMMANDS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Random stuff
+% ital - \textit{}
+% bld - \textbf{}
+% margin - \marginnote{text}[offset]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Random math stuff
+% dx  - \frac{\\partial $1}{\\partial $2}
+% rarrow - \\rightarrow
+% func - \\$1 : \\mathbb{$2} \\rightarrow \\mathbb{$3}, x \\mapsto 
+% txt - \text{$1}
+% // - \\frac{$1}{$2}$0
+% sum -  \\sum \\limits $0
+% qed - qed symbol (filled)
+% inv - inverse ^{-1}
+% math - $ input $ 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Environments
+% align - \begin{alignedat}{4}
+% props - \align{} - Numbered
+% bm - \\begin{bmatrix} $1 \\end{bmatrix}
+% pm - \\begin{pmatrix} $1 \\end{pmatrix}
+% thm - \\begin{thm}{$1} $1 \end{thm}
+% def - \\begin{def}{$1} $1 \end{def}
+% lemma - \begin{lemma}
+% cor - corollary \begin{corollary}
+% proof - \begin{proof}
+% remark - \begin{remark}
+% dm -  \[\]
+% beg - \begin{$1} \end{$1}
+% python - \begin{lstlisting}[language=Python,escapeinside={(*}{*)}, basicstyle=\fontsize{11}{13}]
+% section -  \section{}
+% subsection -  \subsection{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Constants
+% reals - \mathbb{R}
+% rationals - \mathbb{Q}
+% complex - \mathbb{C}
+% eps -  \\epsilon
+% sig - \\sigma
+% Sig - \\Sigma
+% prime - ^{\prime}
+% alpha - \\alpha
+% beta - \\beta
+
+
+
+%%%% START OF DOCUMENT ############
+\begin{document}
+
+
+\section*{Goals:}
+Use state of the art gait generation and motion planning to control Boston Dynamics Spot in Webots to 
+walk on uneven terrain while being robust to various external pushes/forces. 
+The evaluation of the system will be having Spot walk on unseen and technical terrain to reach a goal state, 
+with added pushes at random times.
+
+
+
+\subsection*{Roadmap}
+\begin{enumerate}[label=\arabic*.), start=1] 
+\item  Set up Webots sim in flat environment, use perfect sensors and actuators, and utilize MoveIt
+to have Spot walk around.
+\item Replace MoveIt with SOTA gait generation methods - (Alternate Method: Train multiple policies with RL, have high level controller to choose policy)
+\item Add noisy actuators and sensors to more resemble reality
+\item Replace flat world with uneven terrain
+\item Make gait generation methods robust to external forces (First on flat world)
+\end{enumerate}
+
+\subsection*{Teammates}
+\begin{itemize}
+    \item Chris Beggs - Took UMich's DL course, (Slowly) going through Sergey Levine's Deep RL course, plus I'm going through literature about this stuff to prepare.
+\end{itemize}
+
+\subsection*{Stretch Goals/Things I could add}
+\begin{itemize}
+\item Add obstacles to world and use SLAM
+\item Compare gait generation methods with Deep RL
+\item Various challenges on final project competition
+\item Socially Aware Motion Planning
+\item Add manipulator for object grasping
+\end{itemize}
+
+
+\subsection*{Motivation}
+I do want to work on a robot with joints/manipulators because it's an interesting problem.
+Robots like Spot are better equiped for technical terriain that cars are not able to reach. Also, 
+smaller quadrepeds are able to achieve a better relationship with humans than cars.
+Plus I love dogs.
+
+\subsection*{Timeline Risks}
+Mostly just some aspect of the project taking much longer than anticipated, like implementing some aspects
+of different papers, unexpected software issues, etc.
+
+
+
+\subsection*{Related Work}
+\begin{itemize}
+\item \textbf{Gait Generation:}
+    \begin{itemize}
+    \item Discovery of Complex Behaviors through Contact-Invariant Optimization \textit{Mordatch et al.}
+    \item Feature-Based Locomotion Controllers \textit{Martin de Lasa et al.}
+    \item Fast and Flexible Multilegged Locomotion Using Learned Centroidal Dynamics (Source code included) \textit{Kwon et al.} - http://calab.hanyang.ac.kr/papers/flexLoco.html
+    \item Gait and Trajectory Optimization by Self-Learning for Quadrupedal Robots with an Active Back Joint \textit{Masuri et al.}
+    \item Automatic  Gait  Pattern  Selection for  Legged  Robots, \textit{Wang et al.}
+    \item Adaptation  of  Quadruped  Gaits  Using  Surface Classification  and  Gait  Optimization \textit{Kim et al.}
+    \item A Robust Quadruped Walking Gait for  Traversing Rough Terrain \textit{Pongas et al.}
+    \item Robust  Gait  Synthesis  Combining  Constrained  Optimization  and Imitation Learning \textit{Ding et al.}
+    \item Gait and Trajectory Optimization for Legged Systems Through Phase-Based End-Effector Parameterization \textit{Winkler et al.}
+    \end{itemize}
+\item \textbf{SLAM} 
+    \begin{itemize}
+        \item ORB-SLAM3: An Accurate Open-Source Library for Visual, Visual-Inertial and Multi-Map SLAM
+        \item ORB-SLAM2: an Open-Source SLAM System for Monocular, Stereo and RGB-D Cameras
+    \end{itemize}
+\end{itemize}
+
+
+
+
+\end{document}
+
+
+
+
