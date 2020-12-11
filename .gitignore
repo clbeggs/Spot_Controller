@@ -1,5 +1,6 @@
 # pdf's in RelatedWork directory:
 RelatedWork/*.pdf
+Resources
 Proposal/fonts
 *.fls
 *.fdb_latexmk
@@ -7,6 +8,14 @@ Proposal/fonts
 *.xdv
 *.synctex.gz
 *.aux
+
+src/controllers/spot_controller/maml/weights
+src/controllers/test_controller
+src/controllers/spot_moving_demo.c
+
+CentroidalDynamics.pdf
+InvertedPendulum.pdf
+IPC_Trajopt.pdf
 
 
 # Byte-compiled / optimized / DLL files

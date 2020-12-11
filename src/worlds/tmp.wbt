@@ -1,0 +1,642 @@
+#VRML_SIM R2020b utf8
+WorldInfo {
+  info [
+    "Simulation of Boston Dynamics' Spot robot in a simple industrial environment."
+    "The robot is saying hello with its right leg."
+  ]
+  title "Spot Robot demo"
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation -0.47362706680060856 0.7380695071037443 0.48055260302852143 1.9321085546183137
+  position 8.128352918297944 15.822644673781415 -10.818862045598456
+  followType "None"
+  followSmoothness 0
+}
+TexturedBackground {
+  texture "mars"
+  skybox FALSE
+}
+TexturedBackgroundLight {
+  texture "factory"
+}
+RectangleArena {
+  floorSize 60 60
+  floorAppearance ThreadMetalPlate {
+    textureTransform TextureTransform {
+      scale 0.7 0.7
+    }
+  }
+  wallThickness 0.1
+  wallHeight 3.4
+  wallAppearance Roughcast {
+    colorOverride 0.662745 0.662745 0.662745
+    textureTransform TextureTransform {
+      scale 10 10
+    }
+  }
+}
+DEF Spot_Node Spot {
+  translation 0 0.5 -5.34
+  rotation 1 0 0 0
+}
+Solid {
+  translation 0 0 -16.71
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0 1 0
+          emissiveColor 0 0.9 0
+        }
+      }
+      geometry Cylinder {
+        height 0.1
+        radius 2
+      }
+    }
+  ]
+}
+Rock10cm {
+  translation 2.3 0.05 -10.1
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock10cm {
+  translation 0.06 0.05 -7.92
+  name "rock 10 cm(1)"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation 0 0 -10.15
+  name "rock test"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation 0.235438 0 -9.774107
+  name "rock 0"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -2.550695 0 -8.089615
+  name "rock 1"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation 2.322126 0 -10.822362
+  name "rock 2"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -2.982345 0 -12.358807
+  name "rock 3"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation 0.173933 0 -7.339103
+  name "rock 4"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation 0.049242 0 -11.320744
+  name "rock 5"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -2.416651 0 -10.065415
+  name "rock 6"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation 2.459149 0 -9.474354
+  name "rock 7"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -0.481352 0 -7.982683
+  name "rock 8"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -2.793608 0 -12.283276
+  name "rock 9"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -1.227090 0 -7.483893
+  name "rock 10"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -1.261624 0 -7.433683
+  name "rock 11"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -1.024561 0 -9.683689
+  name "rock 12"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -1.748477 0 -8.350852
+  name "rock 13"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -0.743063 0 -11.662937
+  name "rock 14"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -2.750575 0 -11.499598
+  name "rock 15"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -0.936109 0 -12.770154
+  name "rock 16"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -0.238548 0 -7.959624
+  name "rock 17"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -0.257556 0 -8.112123
+  name "rock 18"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -0.332022 0 -9.655591
+  name "rock 19"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -0.613715 0 -11.991340
+  name "rock 20"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -0.646081 0 -11.903887
+  name "rock 21"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -0.931196 0 -12.619797
+  name "rock 22"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation 1.731802 0 -12.803757
+  name "rock 23"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -0.503724 0 -11.434261
+  name "rock 24"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -0.712414 0 -10.583929
+  name "rock 25"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation 1.514701 0 -12.969598
+  name "rock 26"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -1.329929 0 -12.185530
+  name "rock 27"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -1.394372 0 -9.760015
+  name "rock 28"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation 1.504276 0 -8.051983
+  name "rock 29"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation 1.725219 0 -8.422234
+  name "rock 30"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -2.437936 0 -12.211151
+  name "rock 31"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation 1.480690 0 -10.068494
+  name "rock 32"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation 2.517706 0 -8.173537
+  name "rock 33"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -2.508596 0 -10.666974
+  name "rock 34"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -0.363914 0 -10.114529
+  name "rock 35"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -1.583285 0 -9.572615
+  name "rock 36"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -0.730360 0 -8.730949
+  name "rock 37"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation 0.568709 0 -9.944690
+  name "rock 38"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -0.816135 0 -13.111283
+  name "rock 39"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation 0.043248 0 -9.278645
+  name "rock 40"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -0.221822 0 -12.475611
+  name "rock 41"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -0.786456 0 -9.467659
+  name "rock 42"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -0.036834 0 -7.239058
+  name "rock 43"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation 0.734003 0 -7.514936
+  name "rock 44"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -2.077557 0 -7.503625
+  name "rock 45"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation 1.437111 0 -12.522067
+  name "rock 46"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation 0.692186 0 -10.854234
+  name "rock 47"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -0.715741 0 -9.023135
+  name "rock 48"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -1.778753 0 -11.178621
+  name "rock 49"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation 0.480242 0 -11.521966
+  name "rock 50"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation 1.944345 0 -9.464944
+  name "rock 51"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation 2.558909 0 -10.564953
+  name "rock 52"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation 0.324168 0 -10.591811
+  name "rock 53"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -0.935390 0 -7.878964
+  name "rock 54"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -0.223338 0 -12.630618
+  name "rock 55"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation 1.606553 0 -8.287659
+  name "rock 56"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -2.473081 0 -12.328933
+  name "rock 57"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -1.274535 0 -11.364235
+  name "rock 58"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -2.666827 0 -10.066190
+  name "rock 59"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation 0.550600 0 -8.711138
+  name "rock 60"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation 2.460547 0 -11.310443
+  name "rock 61"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation 1.335480 0 -8.217307
+  name "rock 62"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation 2.788525 0 -10.447900
+  name "rock 63"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -0.443160 0 -9.285370
+  name "rock 64"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -0.350695 0 -12.614914
+  name "rock 65"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation 1.108646 0 -10.979643
+  name "rock 66"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -0.380038 0 -7.477039
+  name "rock 67"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation -0.385976 0 -12.185126
+  name "rock 68"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+Rock17cm {
+  translation 0.396374 0 -9.490583
+  name "rock 69"
+  physics Physics {
+    density -1
+    mass 2
+  }
+}

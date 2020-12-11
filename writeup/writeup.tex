@@ -1,0 +1,124 @@
+\documentclass{article}
+
+\usepackage{listings}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage{fancyhdr} % Fancy headers and footers
+\usepackage{amsthm, amsmath, amsfonts, amssymb, mathrsfs, mathtools} % Math packages
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{marginnote}
+
+%% For inkspace figures:
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\newcommand{\incfig}[1]{%
+    \def\svgwidth{\columnwidth}
+    \import{./figures/}{#1.pdf_tex}
+}
+\pdfsuppresswarningpagegroup=1
+
+%% Set document margin:
+\geometry{margin=1in} %% Add paperheight=16383pt to make page continuous
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{remark}{Remark}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\newtheoremstyle{note}{3pt}{3pt}{\normalfont}{}{\bfseries}{:}{ }{}
+\theoremstyle{note}
+\newtheorem*{note}{Note}
+
+%% Margin Notes
+\let\oldmarginpar\marginpar
+\renewcommand{\marginpar}[2][text width=3cm, rectangle, draw,rounded corners, thick]{%
+        \oldmarginpar{%
+        \tikz \node at (0,0) [#1]{#2};}%
+        }
+
+
+%% Header and Footer
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\classname} % Left Header text
+\rhead{} % Right header text
+\rfoot{Page \thepage}
+
+
+%%% ADD OPTIONAL HEADER AND FOOTER RULES
+
+%%% CHANGE SNIPPETS _ AND ^ TO DETECT IF
+%%% {} HAVE ALREADY BEEN WRITTEN
+
+
+%%% INPUTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\classname}{Adv. Robotics Writeup}
+
+
+%%% SNIPPET COMMANDS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Random stuff
+% ital - \textit{}
+% bld - \textbf{}
+% margin - \marginnote{text}[offset]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Random math stuff
+% dx  - \frac{\\partial $1}{\\partial $2}
+% rarrow - \\rightarrow
+% func - \\$1 : \\mathbb{$2} \\rightarrow \\mathbb{$3}, x \\mapsto 
+% txt - \text{$1}
+% // - \\frac{$1}{$2}$0
+% sum -  \\sum \\limits $0
+% qed - qed symbol (filled)
+% inv - inverse ^{-1}
+% mmath - $ input $ 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Environments
+% align - \begin{alignedat}{4}
+% props - \align{} - Numbered
+% bm - \\begin{bmatrix} $1 \\end{bmatrix}
+% pm - \\begin{pmatrix} $1 \\end{pmatrix}
+% thm - \\begin{thm}{$1} $1 \end{thm}
+% def - \\begin{def}{$1} $1 \end{def}
+% lemma - \begin{lemma}
+% cor - corollary \begin{corollary}
+% proof - \begin{proof}
+% remark - \begin{remark}
+% dm -  \[\]
+% beg - \begin{$1} \end{$1}
+% python - \begin{lstlisting}[language=Python,escapeinside={(*}{*)}, basicstyle=\fontsize{11}{13}]
+% section -  \section{}
+% subsection -  \subsection{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Constants
+% reals - \mathbb{R}
+% rationals - \mathbb{Q}
+% integers - \mathbb{Z}
+% complex - \mathbb{C}
+% eps -  \\epsilon
+% sig - \\sigma
+% Sig - \\Sigma
+% prime - ^{\prime}
+% alpha - \\alpha
+% beta - \\beta
+
+
+
+%%%% START OF DOCUMENT ############
+\begin{document}
+
+
+\section{Hello}
+
+\end{document}
+
+
+
+

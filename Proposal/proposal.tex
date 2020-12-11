@@ -135,12 +135,24 @@ The evaluation of the system will be having Spot walk on unseen and technical te
 with added pushes at random times.
 
 
+\subsection*{Technical Components}
+\begin{itemize}
+\item Gait controller that is robust to technical terrain $ \quad $ Confidence: $ \frac{9}{10} $ 
+\item Add robustness to external forces $\quad$ Confidence: $ \frac{8}{10} $ 
+\end{itemize}
+\textit{Note:} Should be noted that this project can be very fluid as to what hurdles I run into or overcome. i.e. 
+there are many different aspects I can take away/add that will make the project both sufficient for a final project, 
+but also allow it to agree with my schedule and abilities.\\
+For example, if it turns out the uneven terrain aspect of the project turns out to be too difficult to handle, I could
+keep the simulated world flat, and do challenges from the other final project environment that are altered for Spot.
+\\
+Which is why the technical components section is tiny.
 
 \subsection*{Roadmap}
 \begin{enumerate}[label=\arabic*.), start=1] 
 \item  Set up Webots sim in flat environment, use perfect sensors and actuators, and utilize MoveIt
 to have Spot walk around.
-\item Replace MoveIt with SOTA gait generation methods - (Alternate Method: Train multiple policies with RL, have high level controller to choose policy)
+\item Replace MoveIt with SOTA gait generation methods - (Alternate Method: Train multiple action policies with RL, have high level controller to choose specific policy)
 \item Add noisy actuators and sensors to more resemble reality
 \item Replace flat world with uneven terrain
 \item Make gait generation methods robust to external forces (First on flat world)
@@ -148,23 +160,23 @@ to have Spot walk around.
 
 \subsection*{Teammates}
 \begin{itemize}
-    \item Chris Beggs - Took UMich's DL course, (Slowly) going through Sergey Levine's Deep RL course, plus I'm going through literature about this stuff to prepare.
+    \item Chris Beggs - Took UMich's DL course, (Slowly) going through Sergey Levine's Deep RL course, plus I'm going through literature to prepare.
 \end{itemize}
 
 \subsection*{Stretch Goals/Things I could add}
 \begin{itemize}
 \item Add obstacles to world and use SLAM
 \item Compare gait generation methods with Deep RL
-\item Various challenges on final project competition
+\item Various challenges from final project competition
 \item Socially Aware Motion Planning
-\item Add manipulator for object grasping
+\item Add manipulator for object grasping 
 \end{itemize}
 
 
 \subsection*{Motivation}
 I do want to work on a robot with joints/manipulators because it's an interesting problem.
-Robots like Spot are better equiped for technical terriain that cars are not able to reach. Also, 
-smaller quadrepeds are able to achieve a better relationship with humans than cars.
+Robots like Spot are better equipped for technical terrain that cars are not able to reach. Also, 
+smaller quadrupeds are able to achieve a better relationship with humans than cars.
 Plus I love dogs.
 
 \subsection*{Timeline Risks}

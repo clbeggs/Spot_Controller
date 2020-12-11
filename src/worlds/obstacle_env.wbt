@@ -1,0 +1,269 @@
+#VRML_SIM R2020b utf8
+WorldInfo {
+  info [
+    "Simulation of Boston Dynamics' Spot robot in a simple industrial environment."
+    "The robot is saying hello with its right leg."
+  ]
+  title "Spot Robot demo"
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 0.9781101570842683 -0.1428102502235329 -0.15134646688865816 0.14666958162769414
+  position -0.0025358701208253454 0.8539872533145226 3.2527217219661377
+  followType "None"
+  followSmoothness 0
+}
+TexturedBackground {
+  texture "mars"
+  skybox FALSE
+}
+TexturedBackgroundLight {
+  texture "factory"
+}
+RectangleArena {
+  floorSize 60 60
+  floorAppearance ThreadMetalPlate {
+    textureTransform TextureTransform {
+      scale 0.7 0.7
+    }
+  }
+  wallThickness 0.1
+  wallHeight 3.4
+  wallAppearance Roughcast {
+    colorOverride 0.662745 0.662745 0.662745
+    textureTransform TextureTransform {
+      scale 10 10
+    }
+  }
+}
+DEF Spot_Node Spot {
+  translation 0 0.61 -5.34
+  rotation 1 0 0 0
+}
+Solid {
+  translation 0 0 -16.71
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0 1 0
+          emissiveColor 0 0.9 0
+        }
+      }
+      geometry Cylinder {
+        height 0.1
+        radius 2
+      }
+    }
+  ]
+}
+Solid {
+  translation -0.26 0.26 -12.9
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry DEF BOX_GEOMETRY Box {
+        size 0.5 0.5 0.5
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE BOX_GEOMETRY
+  physics Physics {
+    density -1
+    mass 1
+  }
+}
+Solid {
+  translation 0.64 0.26 -11.61
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry DEF BOX_GEOMETRY Box {
+        size 0.5 0.5 0.5
+      }
+    }
+  ]
+  name "solid(9)"
+  boundingObject USE BOX_GEOMETRY
+  physics Physics {
+    density -1
+    mass 1
+  }
+}
+Solid {
+  translation 0.62 0.26 -12.95
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry DEF BOX_GEOMETRY Box {
+        size 0.5 0.5 0.5
+      }
+    }
+  ]
+  name "solid(2)"
+  boundingObject USE BOX_GEOMETRY
+  physics Physics {
+    density -1
+    mass 1
+  }
+}
+Solid {
+  translation 1.17 0.26 -11.02
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry DEF BOX_GEOMETRY Box {
+        size 0.5 0.5 0.5
+      }
+    }
+  ]
+  name "solid(3)"
+  boundingObject USE BOX_GEOMETRY
+  physics Physics {
+    density -1
+    mass 1
+  }
+}
+Solid {
+  translation -0.83 0.26 -11.03
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry DEF BOX_GEOMETRY Box {
+        size 0.5 0.5 0.5
+      }
+    }
+  ]
+  name "solid(4)"
+  boundingObject USE BOX_GEOMETRY
+  physics Physics {
+    density -1
+    mass 1
+  }
+}
+Solid {
+  translation 1.56 0.26 -8.7
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry DEF BOX_GEOMETRY Box {
+        size 0.5 0.5 0.5
+      }
+    }
+  ]
+  name "solid(6)"
+  boundingObject USE BOX_GEOMETRY
+  physics Physics {
+    density -1
+    mass 1
+  }
+}
+Solid {
+  translation -0.48 0.26 -8.28
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry DEF BOX_GEOMETRY Box {
+        size 0.5 0.5 0.5
+      }
+    }
+  ]
+  name "solid(7)"
+  boundingObject USE BOX_GEOMETRY
+  physics Physics {
+    density -1
+    mass 1
+  }
+}
+Solid {
+  translation 0.17 0.26 -8.28
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry DEF BOX_GEOMETRY Box {
+        size 0.5 0.5 0.5
+      }
+    }
+  ]
+  name "solid(10)"
+  boundingObject USE BOX_GEOMETRY
+  physics Physics {
+    density -1
+    mass 1
+  }
+}
+Solid {
+  translation -1.48 0.26 -9.04
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry DEF BOX_GEOMETRY Box {
+        size 0.5 0.5 0.5
+      }
+    }
+  ]
+  name "solid(8)"
+  boundingObject USE BOX_GEOMETRY
+  physics Physics {
+    density -1
+    mass 1
+  }
+}
+Solid {
+  translation -1.87 0.26 -11.91
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry DEF BOX_GEOMETRY Box {
+        size 0.5 0.5 0.5
+      }
+    }
+  ]
+  name "solid(5)"
+  boundingObject USE BOX_GEOMETRY
+  physics Physics {
+    density -1
+    mass 1
+  }
+}

@@ -1,6 +1,7 @@
 # Related Work:
 
  ### Gait Generation, Joint Controllers
+ - Stability analysis and synthesis of statically balanced walking for quadruped robots *Freyr Hardarson*
  -  Discovery of Complex Behaviors through Contact-Invariant Optimization *Mordatch et al.*
  -  Feature-Based Locomotion Controllers *Martin de Lasa et al.*
  -  Fast and Flexible Multilegged Locomotion Using Learned Centroidal Dynamics (Source code included) *Kwon et al.* - http://calab.hanyang.ac.kr/papers/flexLoco.html
