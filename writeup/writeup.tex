@@ -115,7 +115,66 @@
 \begin{document}
 
 
-\section{Hello}
+\section{Abstract}
+This project tackled the problem of quadruped locomotion and navigation.
+There are many different ways to solve this problem, control and trajectory
+optimization, deep reinforcment learning, etc. 
+But in an attempt to maintain generality, Model Agnostic Meta Learning
+proposed by Finn et. al\cite{finn} was used. 
+
+\section{Introduction}
+
+\section{Related Work}
+\cite{winkler} utilized rigid body dynamics. 
+
+
+MAML 
+MAML++
+
+In policy gradient optimization, \cite{trpo} 
+
+TRPO
+VPG
+PPO
+
+
+
+
+\section{Methodology}
+MAML was replicated close to what the original paper.
+Some stability tricks were used from \cite{maml++}, 
+such as the increased gradient steps. 
+Ómaml
+
+
+\subsection{Model Architecture}
+\textbf{Policy Net}\\
+Fully connected network, 2 hidden layers with sizes 256, ReLU 
+activation functions.\\\\
+\textbf{Value Net}\\
+Fully connected network, 2 hidden layers with sizes 128, ReLU 
+activation functions.\\\\
+\subsection{Training}
+As training was done on a laptop, networks had to be kept at the smallest possible size. 200 epochs, 1 task, and 5 sampled trajectories took 2 hours to train.
+
+
+
+\section{Results}
+\section{Discussion}
+\section{Conclusion}
+\section{Refernces}
+
+
+
+
+
+
+
+
+
+
+
+
 
 \end{document}
 
