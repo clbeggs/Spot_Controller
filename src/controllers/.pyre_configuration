@@ -1,8 +1,0 @@
-{
-  "binary": "/home/epiphyte/.pyenv/versions/spot/bin/pyre.bin",
-  "source_directories": [
-    "."
-  ],
-  "taint_models_path": "/home/epiphyte/.pyenv/versions/3.8.6/envs/spot/lib",
-  "typeshed": "/home/epiphyte/.pyenv/versions/3.8.6/envs/spot/lib/pyre_check/typeshed"
-}
