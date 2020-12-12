@@ -1,0 +1,190 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{none/global//global/global}
+  \entry{finn}{misc}{}
+    \name{author}{3}{}{%
+      {{hash=FC}{%
+         family={Finn},
+         familyi={F\bibinitperiod},
+         given={Chelsea},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=AP}{%
+         family={Abbeel},
+         familyi={A\bibinitperiod},
+         given={Pieter},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=LS}{%
+         family={Levine},
+         familyi={L\bibinitperiod},
+         given={Sergey},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FCAPLS1}
+    \strng{fullhash}{FCAPLS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{eprint}
+    \verb 1703.03400
+    \endverb
+    \field{title}{Model-Agnostic Meta-Learning for Fast Adaptation of Deep
+  Networks}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.LG}
+    \field{year}{2017}
+  \endentry
+
+  \entry{imp_maml}{misc}{}
+    \name{author}{3}{}{%
+      {{hash=AA}{%
+         family={Antoniou},
+         familyi={A\bibinitperiod},
+         given={Antreas},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=EH}{%
+         family={Edwards},
+         familyi={E\bibinitperiod},
+         given={Harrison},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=SA}{%
+         family={Storkey},
+         familyi={S\bibinitperiod},
+         given={Amos},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AAEHSA1}
+    \strng{fullhash}{AAEHSA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{eprint}
+    \verb 1810.09502
+    \endverb
+    \field{title}{How to train your MAML}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.LG}
+    \field{year}{2019}
+  \endentry
+
+  \entry{deepgait}{article}{}
+    \name{author}{5}{}{%
+      {{hash=TV}{%
+         family={Tsounis},
+         familyi={T\bibinitperiod},
+         given={Vassilios},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=AM}{%
+         family={Alge},
+         familyi={A\bibinitperiod},
+         given={Mitja},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=LJ}{%
+         family={Lee},
+         familyi={L\bibinitperiod},
+         given={Joonho},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=FF}{%
+         family={Farshidian},
+         familyi={F\bibinitperiod},
+         given={Farbod},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=HM}{%
+         family={Hutter},
+         familyi={H\bibinitperiod},
+         given={Marco},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TV+1}
+    \strng{fullhash}{TVAMLJFFHM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{eprint}
+    \verb 1909.08399
+    \endverb
+    \field{title}{DeepGait: Planning and Control of Quadrupedal Gaits using
+  Deep Reinforcement Learning}
+    \verb{url}
+    \verb http://arxiv.org/abs/1909.08399
+    \endverb
+    \field{volume}{abs/1909.08399}
+    \field{journaltitle}{CoRR}
+    \field{eprinttype}{arXiv}
+    \field{year}{2019}
+  \endentry
+
+  \entry{trpo}{article}{}
+    \name{author}{5}{}{%
+      {{hash=SJ}{%
+         family={Schulman},
+         familyi={S\bibinitperiod},
+         given={John},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=LS}{%
+         family={Levine},
+         familyi={L\bibinitperiod},
+         given={Sergey},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=MP}{%
+         family={Moritz},
+         familyi={M\bibinitperiod},
+         given={Philipp},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=JMI}{%
+         family={Jordan},
+         familyi={J\bibinitperiod},
+         given={Michael\bibnamedelima I.},
+         giveni={M\bibinitperiod\bibinitdelim I\bibinitperiod},
+      }}%
+      {{hash=AP}{%
+         family={Abbeel},
+         familyi={A\bibinitperiod},
+         given={Pieter},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SJ+1}
+    \strng{fullhash}{SJLSMPJMIAP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{eprint}
+    \verb 1502.05477
+    \endverb
+    \field{title}{Trust Region Policy Optimization}
+    \verb{url}
+    \verb http://arxiv.org/abs/1502.05477
+    \endverb
+    \field{volume}{abs/1502.05477}
+    \field{journaltitle}{CoRR}
+    \field{eprinttype}{arXiv}
+    \field{year}{2015}
+  \endentry
+\enddatalist
+\endinput

@@ -8,8 +8,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation -0.7035552668071662 0.6757836710984804 0.21983270098999833 0.9635307615731342
-  position 11.759318260689794 17.224784246524205 4.787744461045872
+  orientation -0.048059537142795206 -0.9970651818115478 -0.05959281927149761 1.2546843789565179
+  position -4.6500855446005795 0.7330654811102406 -8.009362917866955
   followType "None"
   followSmoothness 0
 }
@@ -37,7 +37,7 @@ RectangleArena {
   }
 }
 DEF Spot_Node Spot {
-  translation 0 0.5 -5.34
+  translation 0 0.5 -9.34
   rotation 1 0 0 0
 }
 Solid {
@@ -56,4 +56,21 @@ Solid {
       }
     }
   ]
+}
+DEF CentMass Solid {
+  translation 0 0.5 -5.34
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        transparency 0.5
+        roughness 1
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.11
+      }
+    }
+  ]
+  name "com"
 }

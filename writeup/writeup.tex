@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{scrartcl}
 
 \usepackage{listings}
 \usepackage{multicol}
@@ -19,6 +19,20 @@
     \import{./figures/}{#1.pdf_tex}
 }
 \pdfsuppresswarningpagegroup=1
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\usepackage[
+backend=bibtex,
+sorting=none,
+url=true,
+natbib=true,
+]{biblatex}
+
+\addbibresource{cit.bib}
+
+
+
 
 %% Set document margin:
 \geometry{margin=1in} %% Add paperheight=16383pt to make page continuous
@@ -43,22 +57,12 @@
         }
 
 
-%% Header and Footer
-\pagestyle{fancy}
-\fancyhf{}
-\lhead{\classname} % Left Header text
-\rhead{} % Right header text
-\rfoot{Page \thepage}
-
-
-%%% ADD OPTIONAL HEADER AND FOOTER RULES
 
 %%% CHANGE SNIPPETS _ AND ^ TO DETECT IF
 %%% {} HAVE ALREADY BEEN WRITTEN
 
 
 %%% INPUTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\classname}{Adv. Robotics Writeup}
 
 
 %%% SNIPPET COMMANDS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -108,11 +112,31 @@
 % prime - ^{\prime}
 % alpha - \\alpha
 % beta - \\beta
+%%% INPUTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Header and Footer
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\classname} % Left Header text
+\rhead{} % Right header text
+\rfoot{Page \thepage}
 
+\newcommand{\classname}{}
+
+\title{Spot Controller Writeup}
+\subtitle{\verb`https://github.com/clbeggs/Spot\_Controller`}
+\author{Chris Beggs}
+
+% Line Spacing (Double spaced)
+%\linespread{2}
+
+% Disable autoindent
+\setlength{\parindent}{0pt}
 
 
 %%%% START OF DOCUMENT ############
 \begin{document}
+\maketitle
+
 
 
 \section{Abstract}
@@ -120,53 +144,102 @@ This project tackled the problem of quadruped locomotion and navigation.
 There are many different ways to solve this problem, control and trajectory
 optimization, deep reinforcment learning, etc. 
 But in an attempt to maintain generality, Model Agnostic Meta Learning
-proposed by Finn et. al\cite{finn} was used. 
+proposed by Finn et. al\cite{finn} was used. The meta learning framework 
+was utilized for trajectory optimization of Boston Dynamic's Spot quadruped
+given unseen obstacles and environments.
 
 \section{Introduction}
+The problem of few shot learning is concerned with quickly adapting to a new set of tasks.
+In this project, I implemented the framework presented in \textit{Model Agnostic Meta Learning}(MAML)\cite{finn} 
+that allows a meta network to find the best initial weights to generalize to unseen tasks.
+This method was used over various trajectory optimization and deep RL techniques because 
+of it's simplicity compared to other methods addressing the same problem.
+
 
 \section{Related Work}
-\cite{winkler} utilized rigid body dynamics. 
+Model Agnostic Meta Learning (MAML)\cite{finn} is a meta learning model for few shot learning. It is able
+to generalize by learning good initial weights in the model, where training for a small number of 
+iterations is able to adapt to a new task.
 
+MAML++\cite{imp_maml} is an improved version of MAML, which addresses some of the stability concerns introduced with the original
+MAML paper. In the improved model, they both increase model stability and reduce computational overhead. This
+is done by shared modified batch normalization, a modified meta update step, and shared inner loop learning rates.
 
-MAML 
-MAML++
-
-In policy gradient optimization, \cite{trpo} 
-
-TRPO
-VPG
-PPO
-
-
+Other methods were considered, such as DeepGait\cite{deepgait} which is a heirarchy based planner, consisting of
+a gait planner and controller. The planner decides footstep location, where the controller is responsible for
+executing the plan given by the planner. While this does achieve great results, the gait pattern is constrained, 
+making faster gait patterns and different complex movements not possible.
 
 
 \section{Methodology}
-MAML was replicated close to what the original paper.
-Some stability tricks were used from \cite{maml++}, 
-such as the increased gradient steps. 
-Ómaml
+The MAML meta learning framework was implemented in the context of moving Boston Dynamic's Spot robot
+find a way to a goal point given obstacles.
+The stability trick adopted from \cite{imp_maml} was the Multi-Step loss optimization method, where instead of using the
+original MAML meta loss function:
+\[  \theta_{k+1} = \theta_{k} - \beta \nabla _ \theta \sum \limits ^ B _ {b=1} \mathcal{L}_{T_{b}} (f_{\theta^b _N}) \]
+the following was used:
+\[  \theta_{k+1} = \theta_{k} - \beta \nabla _ \theta \sum \limits ^ B _ {b=1} \sum \limits ^ N _{i=0} v_i \mathcal{L}_{T_{b}} (f_{\theta^b _i}) \]
+Where instead of updating the meta network after the entire task rollout, it's updated after every step of each rollout.
 
+\noindent Following the original MAML, the gradient updates for 
+each batch of sampled trajectories of a given task $ \mathcal{D}_{\mathcal{T}_i} $ 
+were computed using vanilla policy gradient(VPG).
+And the outer loop optimization step, consisting of the gradient update of the meta model
+given the loss of the inner loop models, was computed using trust region policy optimization(TRPO).\cite{trpo}
 
 \subsection{Model Architecture}
 \textbf{Policy Net}\\
-Fully connected network, 2 hidden layers with sizes 256, ReLU 
-activation functions.\\\\
-\textbf{Value Net}\\
+Fully connected network, 3 hidden layers with sizes 256, ReLU 
+activation functions.\\
+A Normal distribution was parameterized by the output of the model:
+\[ a_t \sim \mathcal{N}(f_\theta(\text{\scriptsize Observation}), \Sigma)  \]
+\begin{note}In Pytorch, gradients are able to flow through this non-differentiable operation.
+\end{note}
+
+\noindent \textbf{Value Net}\\
 Fully connected network, 2 hidden layers with sizes 128, ReLU 
-activation functions.\\\\
+activation functions.\\
+The value net was used to map observations to state value, which was then used to compute the surrogate advantage
+used in the trust region policy optimization implementation.\cite{trpo}\\
+
+
+\subsection{Reward Function}
+The following were used as additions to the reward function:
+\begin{itemize}
+    \item Change in distance to goal point from previous time step to current time step: $ |(g - x_{t-1})| - |(g - x_t)| $ 
+    \item Change in position from last time step, to encourage movement: $ \alpha|x_t - x_{t-1}| $
+    \item Body height $ > \alpha$, to encourage not falling over: $ y $ 
+    \item Penalized maximum change in joint angles, to encourage smoother trajectories: $ \max (\Delta \theta_{\scriptsize motor}) $ 
+    \item Penalized angle of rotation for $ z $ axis, to discourage falling and being in unrepairable state: $ \beta \gamma \theta_z  $ , where $ \gamma $ is magnitude of Axis-Angle rotation param.
+    \item Survive award, awarded at every time step
+\end{itemize}
+
 \subsection{Training}
-As training was done on a laptop, networks had to be kept at the smallest possible size. 200 epochs, 1 task, and 5 sampled trajectories took 2 hours to train.
-
-
+As training was done on a laptop, networks had to be kept at the smallest possible size. 200 epochs,
+1 task, and 5 sampled trajectories took 2 hours to train. Smaller networks were tried, but didn't result in any
+promising results.
 
 \section{Results}
+The results were unstable and very slow at training, thus I wasn't able to get good results.
+The best results I was able to get was Spot lunging forward, falling off balance, and making walking like motions 
+while upside down. Final results of epochs also varied wildly given the model initialization.
+Lots of tweaking and tuning the model and implementation was not successful, thus a reproducible result was not found. 
+
+
 \section{Discussion}
+It is a huge dissapointment that I couldn't get solid results with the time I had. Training was a big bottleneck as 
+MAML is not known for being stable, and it took a very long time to train given my limited compute power.
+But, I was able to learn a lot more about policy gradients, meta learning, and pytorch with the project which is an upside.
+But, further time will be given to ironing out and improving the implementation.
+
+
 \section{Conclusion}
-\section{Refernces}
+In conclusion, the meta learning presented by Finn et. al. was shown to be unstable, and 
+selectively adopting a subset of the improvements from MAML++ did not improve the stability.
+And as stated above, more work will be devoted to improving the existing implementation, using Mujoco, 
+using robot models with smaller action spaces, and devoting more time to training larger networks.
 
-
-
-
+\printbibliography
 
 
 

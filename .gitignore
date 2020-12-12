@@ -8,6 +8,10 @@ Proposal/fonts
 *.xdv
 *.synctex.gz
 *.aux
+.pyre_configuration
+.watchmanconfig
+bkp
+test.py
 
 src/controllers/spot_controller/maml/weights
 src/controllers/test_controller
